@@ -18,5 +18,4 @@ in go.
 I plan to use kubernetes to deploy the web app
 I would also like to host in on AWS for learning.
 
-Will need to learn and study
 
