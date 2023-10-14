@@ -2,11 +2,7 @@
 I want to create a secure 
 document storage
 
-I am going to use Rust as it helps to create
-a secure program.
-
-For some micro services I do want write the tools
-in go.
+I am using Golang for the backend and micro services
 
 ### Skills
 - Security
