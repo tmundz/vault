@@ -4,7 +4,7 @@ import (
   //"fmt"
   //"log"
   "github.com/gofiber/fiber/v2"
-  
+  "github.com/tmundz/Vault/routes"
 )
 
 
