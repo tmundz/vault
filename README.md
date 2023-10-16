@@ -4,6 +4,13 @@ document storage
 
 I am using Golang for the backend and micro services
 
+# Information
+The routes are just the http endpoints that applications
+will use. Routes may also contain parameters
+
+The Handlers is the functionality of the http requests 
+and will process said requests.
+
 ### Skills
 - Security
 - Networking
