@@ -1,22 +1,44 @@
 package main
 
 import (
-  //"fmt"
-  //"log"
-  "os"
-  "github.com/gofiber/fiber/v2"
-  "github.com/tmundz/Vault/api/routes"
+	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
 )
 
-func getEnv(key, defaulValue string) string {
-  if value, exists := os.LookupEnv(key); exists {
-    return value
+//get rid of later
+type Article struct {
+  Title string `json:"Title"`
+  Desc string `json:"desc"`
+  Content string `json:"content"`
+}
+
+type Articles []Article
+
+func allArticles(w http.ResponseWriter, r * http.Request) {
+  articles := Articles {
+    Article{
+      Title:"Test Title",
+      Desc: "test Desc",
+      Content: "Look at this cool test",
+    },
   }
-  return defaulValue
+  fmt.Println("allArticles")
+  json.NewEncoder(w).Encode(articles);
+}
+
+func homePage(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintf(w, "Homepage endpoint")
+}
+
+
+func handleRequests() {
+  http.HandleFunc("/", homePage)
+  http.HandleFunc("/articles", allArticles)
+  log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
 func main() {
-  server := getEnv("SERVER_ADDRESS", "8080")
-  app := fiber.New()
-  app.Listen(server)
+  handleRequests();
 }
